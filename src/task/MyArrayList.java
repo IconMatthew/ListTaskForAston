@@ -74,7 +74,7 @@ public class MyArrayList<T> {
         checkIfOutOfBounds(index);
         return (T) arr[index];
     }
-    
+
     public T remove(int index) {
         checkIfOutOfBounds(index);
         Object val = arr[index];
@@ -109,7 +109,7 @@ public class MyArrayList<T> {
     }
 
     public Object[] toArray() {
-        return Arrays.copyOf(arr, arr.length, Object[].class);
+        return Arrays.copyOf(arr, size, Object[].class);
     }
 
     public static List<Object> sort(Collection<? extends Object> list) {
