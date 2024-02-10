@@ -127,4 +127,36 @@ public class MyArrayListTests {
         Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
     }
 
+    @Test
+    void testAddAll(){
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
+        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
+
+        integerMyArrayList.addAll(new Integer[]{2, 123});
+        integerMyArrayList.addAll(new Integer[]{0, -444});
+
+        Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
+    }
+
+    @Test
+    void testAddAllUsingList(){
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
+        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
+
+        ArrayList<Integer> numsToAdd1 = new ArrayList<>();
+        numsToAdd1.add(2);
+        numsToAdd1.add(123);
+
+        ArrayList<Integer> numsToAdd2 = new ArrayList<>();
+        numsToAdd2.add(0);
+        numsToAdd2.add(-444);
+
+        integerMyArrayList.addAll(numsToAdd1);
+        integerMyArrayList.addAll(numsToAdd2);
+
+        Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
+    }
+
+
+
 }
