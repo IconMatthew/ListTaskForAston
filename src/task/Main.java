@@ -16,8 +16,7 @@ public class Main {
         }};
 
         System.out.println(initList);
-        MyArrayList.sort(initList);
-        System.out.println(initList);
+        System.out.println(MyArrayList.sort(initList));
 
     }
 }
