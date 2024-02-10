@@ -57,10 +57,9 @@ public class MyArrayList<T> {
         if (size == Integer.MAX_VALUE) throw new RuntimeException("Max length achieved!");
 
         if (arr.length == EMPTY_CAP) arr = new Object[INIT_CAP];
-        else if (size > (arr.length * 0.75)) {
+        else if (size >= (arr.length * 0.75)) {
             try {
-                int cap = (int) (size * 1.5);
-                arr = Arrays.copyOfRange(arr, 0, (int) (size * 1.5));
+                arr = Arrays.copyOfRange(arr, 0, (int) (size * 2));
             } catch (Exception e) {
                 arr = Arrays.copyOfRange(arr, 0, Integer.MAX_VALUE);
             }
