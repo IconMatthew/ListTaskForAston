@@ -158,7 +158,7 @@ public class MyArrayList<T> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof MyArrayList<?> that)) return false;
-        return size == that.size && Arrays.equals(arr, that.arr) && Objects.equals(list, that.list);
+        return size == that.size && Objects.equals(list, that.list);
     }
 
     @Override
