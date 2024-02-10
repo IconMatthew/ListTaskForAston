@@ -171,13 +171,35 @@ public class MyArrayListTests {
 
     @Test
     void testGet() {
-        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
-        int exp4 = 123;
-        int exp6 = -444;
-        int exp0 = 12;
+        List<Integer> initList = new ArrayList<>() {{
+            add(2);
+            add(4);
+            add(2);
+            add(123);
+            add(0);
+            add(-444);
+        }};
+
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(initList);
+        int exp4 = 0;
+        int exp5 = -444;
+        int exp0 = 2;
+        System.out.println(integerMyArrayList);
         Assertions.assertEquals(exp4, integerMyArrayList.get(4));
-        Assertions.assertEquals(exp6, integerMyArrayList.get(6));
+        Assertions.assertEquals(exp5, integerMyArrayList.get(5));
         Assertions.assertEquals(exp0, integerMyArrayList.get(0));
+    }
+
+    @Test
+    void testSet() {
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
+        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{5, 2, 4, 5, 5, 0, -1});
+
+        integerMyArrayList.set(0, 5);
+        integerMyArrayList.set(0, 3);
+        integerMyArrayList.set(0, 4);
+
+        Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
     }
 
 }
