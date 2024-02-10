@@ -4,12 +4,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import task.MyArrayList;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyArrayListTests {
     @Test
-    void testSortForIntegerList(){
-        List<Integer> initList = new ArrayList<>(){{
+    void testSortForIntegerList() {
+        List<Integer> initList = new ArrayList<>() {{
             add(546);
             add(23);
             add(-123);
@@ -18,33 +19,7 @@ public class MyArrayListTests {
             add(2);
             add(8);
         }};
-        List<Integer> expectedSortedList = new ArrayList<>(){{
-            add(-123);
-            add(0);
-            add(2);
-            add(8);
-            add(23);
-            add(43);
-            add(546);
-        }};
-
-        List<Object> sortedList = MyArrayList.sort(initList);
-        
-        Assertions.assertEquals(expectedSortedList, sortedList);
-    }
-
-    @Test
-    void testSortForIntegerSortedList(){
-        List<Integer> initList = new ArrayList<>(){{
-            add(-123);
-            add(0);
-            add(2);
-            add(8);
-            add(23);
-            add(43);
-            add(546);
-        }};
-        List<Integer> expectedSortedList = new ArrayList<>(){{
+        List<Integer> expectedSortedList = new ArrayList<>() {{
             add(-123);
             add(0);
             add(2);
@@ -60,8 +35,34 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testSortForStringList(){
-        List<String> initList = new ArrayList<>(){{
+    void testSortForIntegerSortedList() {
+        List<Integer> initList = new ArrayList<>() {{
+            add(-123);
+            add(0);
+            add(2);
+            add(8);
+            add(23);
+            add(43);
+            add(546);
+        }};
+        List<Integer> expectedSortedList = new ArrayList<>() {{
+            add(-123);
+            add(0);
+            add(2);
+            add(8);
+            add(23);
+            add(43);
+            add(546);
+        }};
+
+        List<Object> sortedList = MyArrayList.sort(initList);
+
+        Assertions.assertEquals(expectedSortedList, sortedList);
+    }
+
+    @Test
+    void testSortForStringList() {
+        List<String> initList = new ArrayList<>() {{
             add("546");
             add("23");
             add("-123");
@@ -70,7 +71,7 @@ public class MyArrayListTests {
             add("2");
             add("8");
         }};
-        List<String> expectedSortedList = new ArrayList<>(){{
+        List<String> expectedSortedList = new ArrayList<>() {{
             add("-123");
             add("0");
             add("2");
@@ -86,7 +87,7 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testAdd(){
+    void testAdd() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
         MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 123});
 
@@ -96,7 +97,7 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testAdd2Values(){
+    void testAdd2Values() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
         MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 123, -444});
 
@@ -107,7 +108,7 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testAddToIndex(){
+    void testAddToIndex() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
         MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 124, 2, 4});
 
@@ -117,7 +118,7 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testAddToIndex2Values(){
+    void testAddToIndex2Values() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
         MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{-444, 12, 2, 123, 4});
 
@@ -128,7 +129,7 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testAddAll(){
+    void testAddAll() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
         MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
 
@@ -139,7 +140,7 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testAddAllUsingList(){
+    void testAddAllUsingList() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
         MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
 
@@ -158,7 +159,7 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testRemoveIndex(){
+    void testRemoveIndex() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
         MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 4, 2, 123, 0});
 
@@ -168,6 +169,15 @@ public class MyArrayListTests {
         Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
     }
 
-
+    @Test
+    void testGet() {
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
+        int exp4 = 123;
+        int exp6 = -444;
+        int exp0 = 12;
+        Assertions.assertEquals(exp4, integerMyArrayList.get(4));
+        Assertions.assertEquals(exp6, integerMyArrayList.get(6));
+        Assertions.assertEquals(exp0, integerMyArrayList.get(0));
+    }
 
 }
