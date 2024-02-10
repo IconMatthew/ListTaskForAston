@@ -202,4 +202,23 @@ public class MyArrayListTests {
         Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
     }
 
+    @Test
+    void testSize() {
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
+        int expSize = 7;
+
+        Assertions.assertEquals(expSize, integerMyArrayList.size());
+    }
+
+    @Test
+    void testToArray() {
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
+        Object[] integerMyArrayArray = integerMyArrayList.toArray();
+        Object[] expArray = new Integer[]{12, 2, 4, 2, 123, 0, -444};
+
+        for (int i = 0; i < integerMyArrayList.size(); i++) {
+            Assertions.assertEquals(integerMyArrayArray[i], expArray[i]);
+        }
+    }
+
 }
