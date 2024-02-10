@@ -1,9 +1,6 @@
 package task;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class MyArrayList<T> {
 
@@ -155,5 +152,19 @@ public class MyArrayList<T> {
     @Override
     public String toString() {
         return Arrays.toString(Arrays.copyOfRange((T[]) arr, 0, size));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MyArrayList<?> that)) return false;
+        return size == that.size && Arrays.equals(arr, that.arr) && Objects.equals(list, that.list);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size, list);
+        result = 31 * result + Arrays.hashCode(arr);
+        return result;
     }
 }
