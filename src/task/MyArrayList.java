@@ -1,3 +1,5 @@
+package task;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -112,7 +114,7 @@ public class MyArrayList<T> {
         return Arrays.copyOf(arr, arr.length, Object[].class);
     }
 
-    public static Object[] sort(Collection<? extends Object> list) {
+    public static List<Object> sort(Collection<? extends Object> list) {
 
         boolean sorted = false;
         Object[] objectList = list.toArray();
@@ -140,7 +142,7 @@ public class MyArrayList<T> {
             }
         }
 
-        return objectList;
+        return List.of(objectList);
     }
 
     public T set(int index, T elem) {
