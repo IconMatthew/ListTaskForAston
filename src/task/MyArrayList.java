@@ -74,12 +74,14 @@ public class MyArrayList<T> {
         checkIfOutOfBounds(index);
         return (T) arr[index];
     }
-
-
+    
     public T remove(int index) {
         checkIfOutOfBounds(index);
         Object val = arr[index];
-        System.arraycopy(arr, index + 1, arr, index, size - index);
+        if (size - 1 > index) {
+            System.arraycopy(arr, index + 1, arr, index, size - 1 - index);
+        }
+
         size--;
         return (T) val;
     }
