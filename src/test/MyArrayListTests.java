@@ -157,6 +157,17 @@ public class MyArrayListTests {
         Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
     }
 
+    @Test
+    void testRemoveIndex(){
+        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
+        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 4, 2, 123, 0});
+
+        integerMyArrayList.remove(4);
+        integerMyArrayList.remove(1);
+
+        Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
+    }
+
 
 
 }
