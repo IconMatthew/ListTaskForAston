@@ -1,15 +1,16 @@
 package task;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 
 public class MyArrayList<T> {
 
     private static final int INIT_CAP = 10;
     private static final int EMPTY_CAP = 0;
-    Object[] arr;
+    private Object[] arr;
     private int size;
-
-    List<T> list = new ArrayList<>();
 
     public MyArrayList(Collection<? extends T> c) {
         if (!c.isEmpty()) {
@@ -159,13 +160,18 @@ public class MyArrayList<T> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof MyArrayList<?> that)) return false;
-        return size == that.size && Objects.equals(list, that.list);
+        boolean elemsEquals = true;
+        if (this.size != ((MyArrayList<?>) o).size) return false;
+        for (int i = 0; i < size; i++) {
+            if (!this.arr[i].equals(((MyArrayList<?>) o).arr[i])) return false;
+        }
+        return elemsEquals;
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(size, list);
-        result = 31 * result + Arrays.hashCode(arr);
+        int result = Objects.hash(size, Arrays.hashCode(Arrays.copyOfRange(arr, 0, size)));
+        result = 31 * result;
         return result;
     }
 }
