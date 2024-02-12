@@ -110,7 +110,7 @@ public class MyArrayListTests {
     @Test
     void testAddToIndex() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4});
-        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 124, 2, 4});
+        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 123, 2, 4});
 
         integerMyArrayList.add(1, 123);
 
@@ -161,7 +161,7 @@ public class MyArrayListTests {
     @Test
     void testRemoveIndex() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
-        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 4, 2, 123, 0});
+        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{12, 4, 2, 0, -444});
 
         integerMyArrayList.remove(4);
         integerMyArrayList.remove(1);
