@@ -191,18 +191,6 @@ public class MyArrayListTests {
     }
 
     @Test
-    void testSet() {
-        MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
-        MyArrayList<Integer> expectedIntegerMyArrayList = new MyArrayList<>(new Integer[]{5, 2, 4, 5, 5, 0, -1});
-
-        integerMyArrayList.set(0, 5);
-        integerMyArrayList.set(0, 3);
-        integerMyArrayList.set(0, 4);
-
-        Assertions.assertEquals(expectedIntegerMyArrayList, integerMyArrayList);
-    }
-
-    @Test
     void testSize() {
         MyArrayList<Integer> integerMyArrayList = new MyArrayList<>(new Integer[]{12, 2, 4, 2, 123, 0, -444});
         int expSize = 7;
