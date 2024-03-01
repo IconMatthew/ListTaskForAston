@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<Integer> initList = new ArrayList<>(){{
-            add(546);
+            add(222);
             add(23);
             add(-123);
             add(0);
